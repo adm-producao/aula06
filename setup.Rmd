@@ -27,6 +27,10 @@ dev.off <- function(){
 }
 # countdown
 library(countdown)
+# tidyverse
+library(tidyverse)
+# kableExtra
+library(kableExtra)
 # conflicted
 library(conflicted)
 conflict_prefer("filter", "dplyr")

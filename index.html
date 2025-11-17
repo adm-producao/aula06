@@ -11,7 +11,7 @@
     <script src="libs/panelset/panelset.js"></script>
     <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
     <script src="libs/tile-view/tile-view.js"></script>
-    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"a15ef00764514ec48cc57c5bc50c276b","expires":1}</script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"x66ae69646624d7d9c478e421a916e99","expires":1}</script>
     <script src="libs/himalaya/himalaya.js"></script>
     <script src="libs/js-cookie/js.cookie.js"></script>
     <link href="libs/editable/editable.css" rel="stylesheet" />
@@ -26,6 +26,8 @@
     <link href="libs/xaringanExtra-scribble/scribble.css" rel="stylesheet" />
     <script src="libs/xaringanExtra-scribble/scribble.js"></script>
     <script>document.addEventListener('DOMContentLoaded', function() { window.xeScribble = new Scribble({"pen_color":["#FF0000"],"pen_size":3,"eraser_size":30,"palette":[]}) })</script>
+    <script src="libs/kePrint/kePrint.js"></script>
+    <link href="libs/lightable/lightable.css" rel="stylesheet" />
     <link rel="stylesheet" href="slides.css" type="text/css" />
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
@@ -37,7 +39,7 @@ class: center, middle, inverse, title-slide
 # Administração da Produção
 ]
 .subtitle[
-## Unidade 05: Plano Mestre de Produção
+## Unidade 06: Plano Mestre de Produção
 ]
 .author[
 ### <br></br>Renata Oliveira
@@ -71,124 +73,467 @@ layout: true
 
 
 
-## Plano Mestre de Produção (PMP)
-
-### Definição e Conceito
-
-O **Plano agregado de produção** é um plano intermediário de produção que estabelece a quantidade total de produtos a serem fabricados em um determinado período. Ele considera a **demanda prevista**, a **capacidade produtiva** da empresa e os **recursos disponíveis**, buscando equilibrar oferta e demanda de forma eficiente.
-
-O ***Plano agregado de produção** fornece um quadro referência para a busca e alocação de recursos: mão-de-obra, equipamentos, materiais, máquinas, horas extras, subcontratações. Esse quadro é apresentado por meio de medidas consolidadas para todos os produtos ou para algumas linhas individualizadas; a implementação efetiva exige que haja uma **desagregação** do planejamento em **produtos individuais**
-
----
-
-## Plano Mestre de Produção (PMP)
-
-### Definição e Conceito
-
-
-O **Planejamento-Mestre da Produção (PMP)**, também conhecido como MPS (Master Production Schedule), é um **plano detalhado** que estabelece **quanto** e **quando** cada produto final deve ser fabricado em um horizonte de tempo específico. Ele funciona como uma ponte entre o planejamento estratégico (de longo prazo) e a execução operacional (de curto prazo).
-
-O **PMP desagrega o Plano Agregado de Produção em itens específicos**, transformando previsões e pedidos em um **cronograma executável de produção**. É essencialmente uma declaração de compromisso da empresa sobre o que será produzido, considerando capacidade disponível, demanda prevista e recursos necessários.
-
-
----
-
-## Plano Mestre de Produção (PMP)
-
-### Definição e Conceito
-.large[
-O PMP é um documento que diz **quais itens serão produzidos**, em que **quantidades** e em **quais datas**, servindo como base para o planejamento de recursos, compras e controle de produção.
-]
----
-
-## Plano Mestre de Produção (PMP)
-
-### Exemplo 1
+# Exemplo: Produção de Sanduíche Vegetariano
 
 .pull-left[
-**Fábrica de Bicicletas**   
-Produto: Bicicleta Mountain Bike Modelo X   
-Estoque inicial: 50 unidades   
-Estoque de segurança desejado: 20 unidades   
-Lote de produção: 100 unidades   
-Lead time de produção: 1 semana   
+## Lista de ingredientes
+
+- **3** folhas de alface (A)
+- **4** fatias de Tomate (T)
+- **2** pães de forma (P)
 ]
 
 .pull-right[
-| Semana | Previsão | Pedidos Firmes | Maior Valor |
-|--------|----------|----------------|-------------|
-| 1 | 30 | 35 | 35 |
-| 2 | 40 | 25 | 40 |
-| 3 | 35 | 20 | 35 |
-| 4 | 30 | 15 | 30 |
-| 5 | 45 | 10 | 45 |
+## Informação adicional
+
+- 1 pé de alface tem aproximadamente **15 folhas**
+- 1 tomate tem **8 fatias**
 ]
 
+---
+
+# MRP - Material Requirements Planning
+
+### O que é?
+
+**Planejamento das necessidades de materiais (MRP)** é um sistema de informações computadorizado desenvolvido especificamente para ajudar os fabricantes a administrar o estoque e a programação de pedidos de reposição.
+
+Sistema que estabelece uma série de procedimentos e regras de decisão, de modo a atender às necessidades de produção numa sequência de tempo logicamente determinada para cada item componente do produto final.
+
+Sistema MRP lida com suprimentos de peças e componentes cujas demandas **dependem** de determinado produto final.
 
 ---
 
-## Plano Mestre de Produção (PMP)
+# Objetivos do MRP
 
-### Exemplo 1
+Os principais objetivos são:
 
-| Semana | Demanda | Estoque Inicial | Recebimento (PMP) | Estoque Final | ATP |
-|--------|---------|----------------|-------------------|---------------|-----|
-| 1 | 35 | 50 | - | 15 | 15 |
-| 2 | 40 | 15 | 100 | 75 | 50 |
-| 3 | 35 | 75 | - | 40 | 20 |
-| 4 | 30 | 40 | 100 | 110 | 85 |
-| 5 | 45 | 110 | - | 65 | 55 |
 
-Na semana 1: Estoque suficiente (50 - 35 = 15)   
-Na semana 2: Necessário produzir 100 unidades (estoque cairia para -25 sem produção)   
-Na semana 4: Nova produção programada para manter níveis adequados
+1. **Garantir a disponibilidade** de materiais, componentes e produtos para atendimento ao planejamento da produção e às entregas aos clientes.
 
----
+2. **Manter os inventários** no nível mais baixo possível.
 
-## Plano Mestre de Produção (PMP)
-
-### Exemplo 2
-
-**Indústria de Móveis**   
-Produto: Mesa de Jantar 6 lugares   
-Estoque inicial: 0 unidades   
-Política: Produzir em lotes de 50 unidades   
-Lead time: 2 semanas 
-
----
-
-## Plano Mestre de Produção (PMP)
-
-### Exemplo 2
-
-| Semana | Previsão | Pedidos | Demanda Total | Estoque Projetado | PMP |
-|--------|----------|---------|---------------|-------------------|----------------|
-| 1 | 15 | 20 | 20 | 0 → -20 | 50 (semana -1) |
-| 2 | 18 | 12 | 18 | 30 → 12 | - |
-| 3 | 20 | 15 | 20 | 12 → -8 | 50 (semana 1) |
-| 4 | 22 | 10 | 22 | 42 → 20 | - |
+3. **Planejar atividades** de manufatura, de suprimento e de programação de entregas.
 
 
 ---
 
-## Plano Mestre de Produção (PMP)
+# Sistema MRP - Ideia Básica
 
-### Exemplo 2
+.pull-left[
 
-**Decisões:**   
-Produção de 50 unidades deve iniciar 2 semanas antes da necessidade   
-Semana 1 precisa de produção iniciada na semana -1 (antes do período)   
-Semana 3 precisa de produção iniciada na semana 1   
+## Ponto de Partida
+
+O processo inicia-se a partir da informação de:
+- **"QUANDO"** o cliente deseja consumir
+- **"QUANTO"** o cliente deseja consumir
+]
+
+.pull-right[
+
+## Explosão de Materiais
+
+O MRP, então, **"explode"** essas informações para cada item componente do produto final.
+]
 
 ---
 
-## Plano Mestre de Produção (PMP)
+# Sistema MRP - Principais Componentes
 
-### Exemplo 3
+**1. Programa-mestre de produção (MPS)**
+- Declaração de tudo o que a empresa irá produzir
+- Utiliza pedidos em carteira + previsão de demanda
+
+**2. Lista de materiais (BOM - Bill of Materials)**
+- Quantidade exata de matérias-prima, componentes e sub-rotinas
+
+**3. Registros de inventário**
+- Nível de estoque e pedidos em aberto
+- Estoques mínimos e lead times
 
 
+---
+
+# Sistema MRP - Principais Componentes (cont.)
+ 
+**4. Programa MRP**
+- Transforma a demanda do produto final em necessidades brutas para cada item componente
+
+**5. Relatórios e dados de saída**
 
 
+---
+
+# Estrutura hierárquica de componentes
+
+Produto Final → Subconjuntos → Componentes → Matéria-prima
+
+&lt;img src="img/caneta.png" width="70%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Estrutura hierárquica de componentes
+
+Gestão de estoques a partir de uma lista de materiais (BOM): O caso de um hospital público universitário
+
+&lt;img src="img/bom.png" width="70%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Cálculo das necessidades de materiais
+
+O cálculo das necessidades de materiais depende de vários fatores:
+
+- Estrutura do produto com os níveis de fabricação.
+- Tamanho dos lotes de pedidos.
+- Tempos de reposição para cada item componente, seja ele comprado ou fabricado ou montado internamente.
+
+Uso de cada peça, levando em consideração que   
+▶ ela pode ser usada também em outros produtos   
+▶ ela pode ser usada no mesmo produto, só que em diversos níveis
+
+
+---
+
+# Cálculo das Necessidades - Nomenclatura
+
+## Representação da estrutura do produto em árvore
+
+**Descendência na árvore:**
+- Um item é **item pai** de seus componentes imediatos
+- Um item é **item filho** do item do qual ele é componente
+- Toda liberação de pedido programada de um item pai gera uma necessidade bruta de seus itens filhos
+
+---
+
+# Cálculo das Necessidades - Nomenclatura
+
+## Representação da estrutura do produto em árvore
+
+**Nível ou código de subitem:**
+- Toda peça possui um código de subitem
+- Cálculo das necessidades de materiais é feito em ordem crescente de nível
+- Produtos que não é subitem de outro, possui código de subitem 0
+- Demais itens possuem como código de subitem o nível mais baixo da estrutura de produtos considerando todos os produtos dos quais ele é componente
+
+
+---
+
+# Exemplo 1
+
+A empresa Adirex SA, produz um tipo de produto (A), com uma estrutura de montagem dada pela seguinte rede de materiais:
+
+
+&lt;img src="img/1_1.png" width="30%" style="display: block; margin: auto;" /&gt;
+
+As informações de inventários são:
+
+
+&lt;img src="img/1_2.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+.midi[
+A empresa necessita entregar 20 unidades do produto A na sexta semana. Determine a quantidade a encomendar dos produtos/componentes e os períodos em que devem ser efetuadas as encomendas.
+]
+---
+
+# Exemplo 1 - MRP do Produto A
+
+.large[
+&lt;table class="table table-striped table-hover" style="font-size: 30px; color: black; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:center;"&gt; Semana &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Nec. Bruta &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Est. Proj. &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Rec. plan. &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Lib. de ped. &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 20 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; 6 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 20 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 20 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+]
+.footnote[
+Lead time = 1 semana | Estoque inicial = 0 | Política: LaL
+]
+
+---
+
+# Exemplo 2 - Contexto
+
+A **J.C. Móveis** fabrica dois tipos de armários para cozinha: **Modelo A** e **Modelo B**.
+
+Jorge, seu dono, planeja montar:
+- **10 armários** do modelo A → entrega no **período 4**
+- **5 armários** do modelo B → entrega no **período 5**
+
+---
+
+# Exemplo 2 - Contexto
+
+## Lead times
+
+- Modelos A e B: **1 período**
+- Componentes X, Z, T e R: **1, 2, 1 e 1 período**, respectivamente
+- Estoque de segurança: **nulo** para todos os produtos e componentes.
+
+## Política
+
+Reposição **lote a lote**
+
+---
+
+# Exemplo 2 - Diagramas de cada produto
+
+
+&lt;img src="img/2_1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Exemplo 2 - Diagramas de cada produto
+
+
+&lt;img src="img/2_2.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+# Exemplo 2 - Diagramas de cada produto
+
+
+&lt;img src="img/2_3.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Exemplo 3 - Dados
+
+A J.C. Móveis fabrica dois tipos de armários para cozinha, cujas necessidades brutas são:
+
+- Armário do modelo A: 25 unidades no período 5 e 30 unidades no período 6. 
+- Armário do modelo B: 35 unidades no período 7.
+
+Dados de inventário:
+
+&lt;img src="img/3_1.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Exemplo 3 - Dados
+
+Estrutura de montagem:
+
+&lt;img src="img/3_2.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Exemplo 3 - Solução
+
+&lt;img src="img/3_3.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+&lt;img src="img/3_4.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Exemplo 3 - Solução
+
+&lt;img src="img/3_4.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+&lt;img src="img/3_5.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Exemplo 3 - Solução
+
+&lt;img src="img/3_6.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Exemplo 3 - Solução
+
+&lt;img src="img/3_4.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+&lt;img src="img/3_7.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Os Problemas do MRP
+
+## Principais Desafios
+
+1. **Incertezas** (lead time e quantidade)
+
+2. **Lead time fixo**
+
+3. **Inviabilidade da capacidade**
+
+4. **Nervosismo do sistema**
+
+
+---
+
+# Estoque de Segurança - Exemplo Sem ES
+
+## Dados
+- Lotes fixos: **50 unidades**
+- Lead time: **1 período**
+- Estoque de segurança: **0**
+
+&lt;img src="img/es_1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+⚠️ Períodos 3 e 5: Estoque zerado - risco de falta!
+
+---
+
+# Estoque de Segurança - Exemplo Com ES
+
+## Dados
+- Lotes fixos: **50 unidades**
+- Lead time: **1 período**
+- Estoque de segurança: **10 unidades**
+
+&lt;img src="img/es_2.png" width="60%" style="display: block; margin: auto;" /&gt;
+✓ Estoque sempre acima do mínimo de segurança
+
+
+---
+
+# MRPII - Planejamento dos Recursos de Manufatura
+
+## O que é MRPII?
+
+**MRPII** (Manufacturing Resources Planning) é uma evolução do MRP que, além de considerar as necessidades de materiais, considera também necessidades de outros recursos como mão de obra, equipamentos, espaços para armazenagem, instalações, capacidade produtiva, recursos financeiros.
+
+## Módulos
+
+.midi[
+1. Planejamento da produção   
+2. Planejamento-mestre de produção (PMP ou MPS)   
+3. Cálculo das necessidades de materiais (MRP)   
+4. Cálculo das necessidades de capacidade (CRP)   
+5. Controle do chão de fábrica (SFC - Shop Floor Control)   
+]
+
+---
+
+# Exemplo MRPII - Dados
+
+Elaborar os cálculos das necessidades de materiais e de capacidade. Em cada semana há seis funcionários que trabalham 40h com possível extensão de até 10 horas. Caso não seja possível, ajuste o plano de produção. Considere que os todos os funcionários são capacitados para produzir os itens A e C.
+
+&lt;img src="img/mrp2_1.png" width="75%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Exemplo MRPII - Dados
+
+## Capacidade Disponível
+
+- **Capacidade hora normal**: 240 horas (6 funcionários × 40h)
+- **Capacidade hora extra**: 60 horas (até 10h extras)
+
+
+&lt;img src="img/mrp2_2.png" width="70%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Exemplo MRPII - Solução
+
+## Cálculo das necessidades de capacidade
+
+&lt;img src="img/mrp2_4.png" width="70%" style="display: block; margin: auto;" /&gt;
+
+&lt;img src="img/mrp2_3.png" width="70%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Exemplo MRPII - Solução
+
+## Cálculo das necessidades de capacidade
+
+&lt;img src="img/mrp2_5.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+&lt;img src="img/mrp2_6.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Exemplo MRPII - Solução
+
+## Cálculo das necessidades de capacidade
+
+&lt;img src="img/mrp2_7.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Exemplo MRPII - Solução
+
+## Cálculo das necessidades de capacidade
+
+&lt;img src="img/mrp2_8.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Exemplo MRPII - Solução
+
+## Cálculo das necessidades de capacidade
+
+&lt;img src="img/mrp2_9.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Referências
+
+**Principais:**
+
+- CORRÊA, H. L.; CORRÊA, C. A. **Administração de produção e operações**: manufatura e serviços. 3. ed. São Paulo: Atlas, 2012.
+
+- SLACK, N.; BRANDON-JONES, A.; JOHNSTON, R. **Administração da produção**. 8. ed. São Paulo: Atlas, 2018.
+
+**Complementares:**
+
+- VOLLMANN, T. E. et al. **Manufacturing planning and control systems**. 5th ed. McGraw-Hill, 2005.
+
+- LUSTOSA, L. et al. **Planejamento e controle da produção**. Rio de Janeiro: Elsevier, 2008.
 
 
 ---
