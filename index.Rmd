@@ -1,6 +1,6 @@
 ---
 title: "Administração da Produção"
-subtitle: "Unidade 06: Plano Mestre de Produção"
+subtitle: "Unidade 06: Materials Resource Planning (MRP) e MRP II"
 author: 
   - <br></br>Renata Oliveira
 output:
